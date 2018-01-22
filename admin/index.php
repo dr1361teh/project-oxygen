@@ -1,3 +1,43 @@
+<?php
+session_start();
+$actualcid = $_SESSION['cid'];
+//core code
+$cid = "";
+$firstname = "";
+$lastname = "";
+if($xml = simplexml_load_file('http://api.vateud.net/members/FRA.xml')){
+  $count = count($xml -> member);
+  foreach($xml->item as $item){
+    if($item->member->cid === $_SESSION['cid']){
+      $cid = $member->cid;
+      $firstname = $member->firstname;
+      $lastname = $member->lastname;
+    } else {
+      echo "<h2 style='color:red'>Error</h2><h3> ERRCODE: <strong>0x002</strong></h3><p>The CID <i>$actualcid</i> is not a member of the French Division on VATSIM.<strong> This is a membership error. Please contact your division director.</strong></p><p><a href='index.php'>Reload</a></p>";
+      die;
+    }
+  }
+} else {
+  echo "<h2 style='color:red'>Error</h2><h3> ERRCODE: <strong>0x001</strong></h3><p>Could not load the VATEUD Member XML API, cannot continue. Please try again later.<strong>Please report the errors displayed above to the SYSADMIN.</strong></p><p><a href='index.php'>Reload</a></p>";
+  die;
+}
+
+$json = 'http://api.vateud.net/members/FRA.json';
+$array = json_decode($json, true);
+$result = getInfo($_SESSION['cid'], $array);
+function getInfo($id, $array){
+  foreach($array as $index=>$out){
+    if($out['id'] == $id){
+      $output = $json;
+    }
+  }
+}
+
+
+if(!isset($_SESSION['cid'])){
+  header('Location: ../index.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,11 +52,11 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../styles/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="../styles/css/skins/skin-blue.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,7 +89,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -88,7 +128,7 @@ desired effect
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="../styles/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -173,17 +213,17 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="../styles/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">HQ System Bot</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="../styles/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  HQ System Bot 0000000
+                  First Last <?php echo $cid; ?>
                   <small>Bot registered since 22/01/2018</small>
                 </p>
               </li>
@@ -218,10 +258,10 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="../styles/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>HQ System Bot 0000000</p>
+          <p><?php echo $firstname.' '.$json; ?><p><strong><?php echo $_SESSION['cid']; ?></strong></p></p>
           <!-- Status -->
         </div>
       </div>
@@ -291,7 +331,7 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Welcome $User
+        Welcome, <?php echo 'First Last'; ?>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
@@ -308,13 +348,58 @@ desired effect
             <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Total Members</span>
-              <span class="info-box-number">http://api.vateud.net/members/FRA.xml <small>%</small></span>
+              <span class="info-box-text">CPU Traffic</span>
+              <span class="info-box-number">90<small>%</small></span>
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
         </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Likes</span>
+              <span class="info-box-number">41,410</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Sales</span>
+              <span class="info-box-number">760</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Division Members</span>
+              <span class="info-box-number"><?php echo $count;?></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+      </div>
         <!-- /.col -->
     </section>
        <span class="info-box-text">Grab the VATEUD Calender API as most events are posted</span>
@@ -338,11 +423,11 @@ desired effect
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/jquery/../styles/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/bootstrap/../styles/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script src="../styles/js/adminlte.min.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

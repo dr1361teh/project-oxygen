@@ -51,7 +51,7 @@ if (strlen($cid) <= 7) {
                 $query2->execute(array(
                     ':cid' => $cid,
                     ':email' => $lastip,
-                    ':pwd' => $cid,
+                    ':pwd' => $apwd,
                     ':regdate' => $regdate,
                     ':lastip' => $lastip,
                     ':ebld' => 0,
