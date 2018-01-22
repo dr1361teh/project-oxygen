@@ -36,6 +36,7 @@ if(isset($_SESSION['username'])){
 					<input id="password" type="password" placeholder="password" name="password" required><br>
 				<input type="submit" value="Log In">
 				</form>
+				<a href="register.php"><input style="background-color:#919294" type="submit" value="Register"></a>
 			</div>
 	</div>
 </html>

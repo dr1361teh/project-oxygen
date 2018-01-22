@@ -1,14 +1,14 @@
 <?php
 session_start();
-require('../config.php');
-require('../connection.php');
+require '../config.php';
+require '../connection.php';
 
 $cid = $_POST['cid'];
 $pwd = $_POST['password'];
 $apwd = md5($pwd);
-if(!isset($pwd)){
+if (!isset($pwd)) {
     header('Location: ../../index.php');
-} elseif(!isset($cid)){
+} elseif (!isset($cid)) {
     header('Location: ../../index.php');
 }
 
@@ -17,20 +17,18 @@ $sql = "SELECT * FROM users WHERE cid = :cid;";
 $query = $conn->prepare($sql);
 
 $query->execute(array(
-    ':cid' => $cid
+    ':cid' => $cid,
 ));
 $rowCount = $query->rowCount();
 $rows = $query->fetch(PDO::FETCH_ASSOC);
 
-
 //Check if account exists
-if($rowCount >= 1){
-
+if ($rowCount >= 1) {
 
     $password = $rows['password'];
     $email = $rows['email'];
     //Check if password matches
-    if($apwd == $password){
+    if ($apwd == $password) {
         //Log In & set session variables
         $_SESSION['cid'] = $cid;
         $_SESSION['email'] = $email;
@@ -42,18 +40,16 @@ if($rowCount >= 1){
         $query2->execute(array(
             ':lastlogin' => $lastlogin,
             ':lastip' => $lastip,
-            ':cid' => $cid
+            ':cid' => $cid,
         ));
         //Set tables
 
         header('Location: admin/index.php');
     } else {
-        $_SESSION['wrongPassword'] = 'Incorrect password for '.$cid;
+        $_SESSION['wrongPassword'] = 'Incorrect password for ' . $cid;
         header('Location: ../../index.php');
     }
 } else {
-    $_SESSION['noMatch'] = $cid.' does not exist!';
+    $_SESSION['noMatch'] = $cid . ' does not exist!';
     header('Location: ../../index.php');
 }
-
-?>
