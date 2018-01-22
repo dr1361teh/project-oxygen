@@ -5,6 +5,6 @@
 $config['dbHost'] = 'localhost';
 $config['dbUser'] = 'root';
 $config['dbPass'] = '';
-$config['db'] = 'vatfrance';
+$config['dbName'] = 'vatfrance';
 
 ?>

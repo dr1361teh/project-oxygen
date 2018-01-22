@@ -1,5 +1,10 @@
 <?php
-$config = require('config.php');
-$conn = new mysqli($config['dbHost'], $config['dbName'], $config['dbPass'], $config['dbName']) or die(error);
+require('config.php');
+$host = $config['dbHost'];
+$user = $config['dbUser'];
+$pass = $config['dbPass'];
+$db = $config['dbName'];
+
+$conn = new PDO("mysql:host=$host;dbname=$db", "$user", "$pass") or die(error);
 
 ?>

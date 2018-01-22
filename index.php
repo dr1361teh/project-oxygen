@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+session_destroy();
+if(isset($_SESSION['username'])){
+	header('Location: admin/index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -19,8 +23,17 @@
 			<br>
 			<div class="login">
 				<form method="POST" action="library/events/login.php">
-					<input id="cid" name="cid" type="text" placeholder="username" name="user"><br>
-					<input id="password" type="password" placeholder="password" name="password"><br>
+				<?php
+					if(isset($_SESSION['noMatch'])){
+						echo '<span class="error"><strong>Error</strong>: '.$_SESSION['noMatch'].'</span><br><br>';
+						unset($_SESSION['noMatch']);
+					} elseif(isset($_SESSION['wrongPassword'])){
+						echo '<span class="error"><strong>Error</strong>: '.$_SESSION['wrongPassword'].'</span><br><br>';
+						unset($_SESSION['wrongPassword']);
+					}
+				?>
+					<input id="cid" name="cid" type="text" placeholder="username" name="user" required><br>
+					<input id="password" type="password" placeholder="password" name="password" required><br>
 				<input type="submit" value="Log In">
 				</form>
 			</div>
