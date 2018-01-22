@@ -17,8 +17,12 @@
 				<div>VAT<span class="blue"><strong>FRANCE</strong></span></div>
 			</div>
 			<br>
-			<div class="login"><br><br>
-				<input type="button" value="Login with VATSIM" onclick="location.href='library/sso/Authentication.php'">
+			<div class="login">
+				<form method="POST" action="library/events/login.php">
+					<input id="cid" name="cid" type="text" placeholder="username" name="user"><br>
+					<input id="password" type="password" placeholder="password" name="password"><br>
+				<input type="submit" value="Log In">
+				</form>
 			</div>
 	</div>
 </html>
