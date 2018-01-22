@@ -28,6 +28,15 @@ if($result->num_rows >= 1){
         //Log In & set session variables
         $_SESSION['cid'] = $cid;
         $_SESSION['email'] = $email;
+        //Set tables
+        $lastlogin = time();
+        $lastip = $_SERVER['REMOTE_ADDR'];
+
+        $stmt = $conn->prepare("INSERT INTO users (`lastlogin`, `lastip`) VALUES (?, ?);");
+        $stmt->bind_param("is", $lastlogin, $lastip);
+
+        $stmt->execute();
+
         header('Location: admin/index.php');
     } else {
         $_SESSION['wrongPassword'] = 'Incorrect password for '.$cid;
@@ -39,11 +48,3 @@ if($result->num_rows >= 1){
 }
 
 ?>
-
-
-$stmt = $conn->prepare("INSERT INTO users (`lastlogin`, `lastip`) VALUES (?, ?, ?, ?);");
-$stmt->bind_param("is", $lastlogin, $lastip);
-
-$lastlogin = time();
-$lastip = $_SERVER['REMOTE_ADDR'];
-$stmt->execute();
