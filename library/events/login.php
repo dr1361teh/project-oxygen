@@ -44,7 +44,7 @@ if ($rowCount >= 1) {
         ));
         //Set tables
 
-        header('Location: ../../admin/index.php');
+        header('Location: ../../index.php?content=dasbhoard');
     } else {
         $_SESSION['wrongPassword'] = 'Incorrect password for ' . $cid;
         header('Location: ../../index.php');

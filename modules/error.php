@@ -24,7 +24,7 @@ if(!isset($_SESSION['errcode'])){
         <strong><?php echo $_SESSION['errdesc'];?></strong>
     </p>
     <p>Do not reload this page!</p>
-    <a onclick="window.history.go(-1); return false;">Go Back</a>
+    <a href="../index.php">Home</a> | <a onclick="window.history.go(-1); return false;">Go Back</a>
  <?php
         if($_SESSION['errcode'] === '0x002'){
             session_destroy();
