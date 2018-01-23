@@ -50,7 +50,7 @@ if (strlen($cid) <= 7) {
                 $lastip = $_SERVER['REMOTE_ADDR'];
                 $query2->execute(array(
                     ':cid' => $cid,
-                    ':email' => $lastip,
+                    ':email' => $email,
                     ':pwd' => $apwd,
                     ':regdate' => $regdate,
                     ':lastip' => $lastip,
