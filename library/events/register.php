@@ -34,7 +34,7 @@ $query->execute(array(
 $emailCount = $query->rowCount();
 
 //Check if CID is correct length
-if (strlen($cid) = 7) {
+if (strlen($cid) === 7) {
     //Check if CID input is numeric
     if (is_numeric($cid)) {
         //Check if account exists
