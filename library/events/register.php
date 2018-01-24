@@ -34,7 +34,7 @@ $query->execute(array(
 $emailCount = $query->rowCount();
 
 //Check if CID is correct length
-if (strlen($cid) <= 7) {
+if (strlen($cid) = 7) {
     //Check if CID input is numeric
     if (is_numeric($cid)) {
         //Check if account exists
@@ -57,21 +57,21 @@ if (strlen($cid) <= 7) {
                     ':ebld' => 0,
                 ));
                 //Set tables
-                $_SESSION['error'] = 'Application sent.';
-                header('Location: ../../register.php');
+                $_SESSION['success'] = 'Application sent.';
+                header('Location: ../../index.php?register=true');
             } else {
                 $_SESSION['error'] = 'That email is already taken!';
-                header('Location: ../../register.php');
+                header('Location: ../../index.php?register=true');
             }
         } else {
             $_SESSION['error'] = $cid . ' is already in use!';
-            header('Location: ../../register.php');
+            header('Location: ../../index.php?register=true');
         }
     } else {
         $_SESSION['error'] = 'Your CID must be numeric.';
-        header('Location: ../../register.php');
+        header('Location: ../../index.php?register=true');
     }
 } else {
-    $_SESSION['error'] = 'CID must be less than 7 characters.';
-    header('Location: ../../register.php');
+    $_SESSION['error'] = 'CID must be 7 characters.';
+    header('Location: ../../index.php?register=true');
 }

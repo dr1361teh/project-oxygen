@@ -1,4 +1,6 @@
 <?php
+$title = 'Dashboard';
+
 try {
   if (empty($_SESSION['cid'])) {
       throw new \Exception('CID is not defined');
