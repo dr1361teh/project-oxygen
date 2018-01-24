@@ -1,33 +1,6 @@
 <?php
 $title = 'Dashboard';
 
-try {
-  if (empty($_SESSION['cid'])) {
-      throw new \Exception('CID is not defined');
-  }
-
-  $result = [];
-  if ($xml = simplexml_load_file('http://api.vateud.net/members/FRA.xml')) {
-      foreach ($xml->member as $member) {
-          if ($member->cid == $_SESSION['cid']) {
-              $result = (array) $member;
-              break;
-          }
-      }
-  } else {
-      throw new \Exception('Could not load XML');
-  }
-
-} catch (Exception $e) {
-  // store in a variable if you wish
-  die($e->getMessage());
-}
-if(empty($result)){
-  $_SESSION['errcode'] = '0x002';
-  $_SESSION['errmsg'] = "You cannot login because the CID, <i>$actualcid</i> is not a member of the VATSIM France division.";
-  $_SESSION['errdesc'] = "Please contact your division director.";
-  header('Location: modules/error.php');
-}
 ?>
 <?php
 require('header.php');
@@ -85,21 +58,3 @@ require('header.php');
       reserved.
     </div>
     <!-- /.container -->
-  </footer>
-</div>
-<!-- ./wrapper -->
-
-<!-- jQuery 3 -->
-<script src="views/admin/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="views/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="views/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="views/admin/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="styles/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="styles/js/demo.js"></script>
-</body>
-</html>

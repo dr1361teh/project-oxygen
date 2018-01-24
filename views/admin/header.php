@@ -1,5 +1,32 @@
 <?php
 //Header File (global for admin dashboard)
+try {
+  if (empty($_SESSION['cid'])) {
+      throw new \Exception('CID is not defined');
+  }
+
+  $result = [];
+  if ($xml = simplexml_load_file('http://api.vateud.net/members/FRA.xml')) {
+      foreach ($xml->member as $member) {
+          if ($member->cid == $_SESSION['cid']) {
+              $result = (array) $member;
+              break;
+          }
+      }
+  } else {
+      throw new \Exception('Could not load XML');
+  }
+
+} catch (Exception $e) {
+  // store in a variable if you wish
+  die($e->getMessage());
+}
+if(empty($result)){
+  $_SESSION['errcode'] = '0x002';
+  $_SESSION['errmsg'] = "You cannot login because the CID, <i>$actualcid</i> is not a member of the VATSIM France division.";
+  $_SESSION['errdesc'] = "Please contact your division director.";
+  header('Location: modules/error.php');
+}
 
 //Create session variables
 $_SESSION['firstname'] = $result['firstname'];
