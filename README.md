@@ -1,5 +1,18 @@
-VATFRANCE new website for the VATSIM French division on VATSIM.net
+# VATFRANCE
+Welcome to the new proposed VATFRANCE HQ system developed by whenofficial & chrissKL as part of **whenofficial LTD**.
+This project is proposed to offer the VATSIM France division a new and fully-functioning HQ system that enables features for staff and pilots alike.
 
-Created by whenofficial (1333214) and chrissKLO ()
+## License
+The project is open-source for a reason - anyone can view and contribute. If you have any changes, just submit a pull request and we will review your modifications to see if it fits our criteria and provides a benefit. You **may not** fork this project and change all licensing to your organization - it's theft. You can review our license in this master branch.
 
-Using Bootstrap, PHP, MySQL, and the VATSIM SSO
+## Features
+The VATFRANCE HQ system offers:
+* Admin & Pilot management
+* Mass emailing
+* Training system
+* Examination system
+* Member management
+* Rating submissions
+and more..
+
+You can contribute to these features or even add your own, just clone the project and create a pull request to the master branch.
