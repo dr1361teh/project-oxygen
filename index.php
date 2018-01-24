@@ -4,12 +4,19 @@ session_start();
 //Content Types
 
 //Declare variables
-$actualcid = $_SESSION['cid'];
+if(isset($_SESSION['cid'])){
+	$actualcid = $_SESSION['cid'];
+}
 
 if(!isset($_GET['content'])){
 	$content = 'index';
 } else {
 	$content = $_GET['content'];
+}
+
+if(isset($_GET['register']) && $_GET['register'] === 'true'){
+	require('views/register.php');
+	die;
 }
 
 if(isset($_SESSION['cid']) && $content === 'index'){
@@ -24,7 +31,7 @@ if(isset($_SESSION['cid']) && $content === 'index'){
 		$_SESSION['errmsg'] = 'Failed to open page.';
 		$_SESSION['errdesc'] = 'The file '.$content.'.php does not exist';
 		header('Location: modules/error.php');
-		}
+	}
 //if all else above fails:
 } else {
 	$_SESSION['errcode'] = '0x006';

@@ -26,9 +26,10 @@ if (isset($_SESSION['username'])) {
 				<?php
 					if (isset($_SESSION['error'])) {
 						echo '<span class="error"><strong>Error</strong>: ' . $_SESSION['error'] . '</span><br><br>';
-						unset($_SESSION['emailTaken']);
+						unset($_SESSION['error']);
 					} elseif (isset($_SESSION['success'])) {
 						echo '<span class="success"><strong>Success</strong>: ' . $_SESSION['success'] . '</span><br><br>';
+						unset($_SESSION['success']);
 					}
 ?>
                     <input id="cid" name="cid" type="text" placeholder="vatsim id" name="user" required><br><br>

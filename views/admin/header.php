@@ -1,11 +1,20 @@
 <?php
 //Header File (global for admin dashboard)
+
+//Create session variables
+$_SESSION['firstname'] = $result['firstname'];
+$_SESSION['lastname'] = $result['lastname'];
+$_SESSION['regdate'] = $result['reg-date'];
+$_SESSION['active'] = $result['active'];
+$_SESSION['atcrating'] = $result['humanized-atc-rating'];
+$_SESSION['pilotrating'] = $result['humanized-pilot-rating'];
+$_SESSION['country']  = $result['country'];
 ?>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Top Navigation</title>
+  <title><?php if(isset($title)){ echo $title; } else { echo 'VATFRANCE'; }?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -174,7 +183,7 @@
                 <!-- The user image in the navbar-->
                 <img src="styles/img/user2-160x160.jpg" class="user-image" alt="User Image">
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                <span class="hidden-xs"><?php echo $result['firstname'].' '.$result['lastname']; ?></span>
+                <span class="hidden-xs"><?php echo $_SESSION['firstname'].' '.$_SESSION['lastname']; ?></span>
               </a>
               <ul class="dropdown-menu">
                 <!-- The user image in the menu -->
@@ -182,8 +191,8 @@
                   <img src="styles/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                   <p style="color:black !important;">
-                    <?php echo $result['firstname'].' '.$result['lastname']. ' - '.$result['humanized-atc-rating'];?>
-                    <small>Member since <strong><?php echo substr($result['reg-date'], 0, 10); ?></strong></small>
+                    <?php echo $_SESSION['firstname'].' '.$_SESSION['lastname'].' - '.$_SESSION['atcrating'];?>
+                    <small>Member since <strong><?php echo substr($_SESSION['regdate'], 0, 10); ?></strong></small>
                   </p>
                 </li>
                 <!-- Menu Body -->
