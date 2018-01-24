@@ -13,6 +13,7 @@ The VATFRANCE HQ system offers:
 * Examination system
 * Member management
 * Rating submissions
+
 and more..
 
 You can contribute to these features or even add your own, just clone the project and create a pull request to the master branch.
