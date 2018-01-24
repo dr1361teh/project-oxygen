@@ -13,7 +13,7 @@ require('header.php');
         <h1>
           HQ System
           <small>Version PRE-APLHA 0.0.1</small>
-        </h1>
+        </h1><br>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> HQ</a></li>
           <li><a href="#">ATC</a></li>
@@ -28,7 +28,7 @@ require('header.php');
               <h3 class="box-title">Sector Files Section</h3>
             </div>
             <div class="box-body">
-              Welcome to the VATFRANCE Sector File database. Here youy will find every AIRAC Cycle update and useful plugins for you controlling session.
+              Welcome to the VATFRANCE Sector File database. Here you will find sectorfiles updated to the latest AIRAC Cycle and useful plugins for you controlling session.
             </div>
             <!-- /.box-body -->
           </div>
