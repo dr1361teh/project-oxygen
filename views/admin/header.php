@@ -237,7 +237,7 @@ $_SESSION['country']  = $result['country'];
                       <a href="#" class="btn btn-default btn-flat">My Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="library/events/logout.php" class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>
