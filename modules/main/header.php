@@ -1,5 +1,0 @@
-<?php 
-//header
-?>
-<!-- INSERT ALL LINES INSIDE <HEAD> TAG IN HERE -->
-<!-- DO NOT CLOSE HEAD TAG, WILL BE DONE IN FOOTER -->

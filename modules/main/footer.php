@@ -1,6 +1,0 @@
-<?php
-
-?>
-</head>
-</body>
-</html>
