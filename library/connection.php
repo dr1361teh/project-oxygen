@@ -5,6 +5,6 @@ $user = $config['dbUser'];
 $pass = $config['dbPass'];
 $db = $config['dbName'];
 
-$conn = new PDO("mysql:host=$host;dbname=$db", "$user", "$pass") or die(error);
+$conn = new PDO("mysql:host=$host;dbname=$db", "$user", "$pass") or die();
 
 ?>

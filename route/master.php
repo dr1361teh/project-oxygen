@@ -20,6 +20,8 @@ if(isset($_GET['register']) && $_GET['register'] === 'true'){
 
 if(isset($_SESSION['cid']) && $content === 'index'){
 	require('views/admin/index.php');
+} elseif($content === 'error'){
+	require('modules/error.php');
 } elseif(!isset($_SESSION['cid'])){
 	require('views/login.php');
 } elseif($_SESSION['cid'] && isset($content)){
@@ -29,13 +31,13 @@ if(isset($_SESSION['cid']) && $content === 'index'){
 		$_SESSION['errcode'] = '0x007';
 		$_SESSION['errmsg'] = 'Failed to open page.';
 		$_SESSION['errdesc'] = 'The file '.$content.'.php does not exist';
-		header('Location: modules/error.php');
+		header('Location: index.php?content=error');
 	}
 //if all else above fails:
 } else {
 	$_SESSION['errcode'] = '0x006';
 	$_SESSION['errmsg'] = 'No content was declared.';
 	$_SESSION['errdesc'] = 'Please try again.';
-	header('Location: modules/error.php');
+	header('Location: index.php?content=error');
 }
 ?>

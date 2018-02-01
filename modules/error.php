@@ -1,5 +1,4 @@
 <?php
-session_start();
 if(!isset($_SESSION['errcode'])){
     $_SESSION['errcode'] = '0x003';
     $_SESSION['errmsg'] = 'No valid or set error code is set.';
@@ -15,7 +14,7 @@ if(!isset($_SESSION['errcode'])){
 }
 ?>
 
-<link rel="stylesheet" href="../styles/css/AdminLTE.min.css">
+<link rel="stylesheet" href="styles/css/AdminLTE.min.css">
 <h2 style='color:red'>Error</h2>
     <h3>ERRCODE: 
         <strong><?php echo $_SESSION['errcode'];?></strong>
@@ -24,7 +23,7 @@ if(!isset($_SESSION['errcode'])){
         <strong><?php echo $_SESSION['errdesc'];?></strong>
     </p>
     <p>Do not reload this page!</p>
-    <a href="../index.php">Home</a> | <a onclick="window.history.go(-1); return false;">Go Back</a>
+    <a href="index.php">Home</a> | <a onclick="window.history.go(-1); return false;">Go Back</a>
  <?php
         if($_SESSION['errcode'] === '0x002'){
             session_destroy();
