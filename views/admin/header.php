@@ -1,5 +1,6 @@
 <?php
 //Header File (global for admin dashboard)
+
 try {
   if (empty($_SESSION['cid'])) {
       throw new \Exception('CID is not defined');
@@ -25,8 +26,10 @@ if(empty($result)){
   $_SESSION['errcode'] = '0x002';
   $_SESSION['errmsg'] = "You cannot login because the CID, <i>$actualcid</i> is not a member of the VATSIM France division.";
   $_SESSION['errdesc'] = "Please contact your division director.";
-  header('Location: modules/error.php');
+  header('Location: index.php?content=error');
 }
+// require('../config.php');
+// require('../connection.php');
 
 //Create session variables
 $_SESSION['firstname'] = $result['firstname'];

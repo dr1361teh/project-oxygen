@@ -2,7 +2,7 @@
 //vatfrance configuration file
 
 //Database
-$config['dbHost'] = 'localhost';
+$config['dbHost'] = 'locawqdsadwqswlhost';
 $config['dbUser'] = 'root';
 $config['dbPass'] = '';
 $config['dbName'] = 'vatfrance';
