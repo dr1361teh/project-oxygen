@@ -28,11 +28,18 @@ require('header.php');
 
           <p>#test_message_custom</p>
         </div>
-        <div class="callout callout-danger">
-          <h4>#custom_error_message</h4>
-
-          <p>#error_xd</p>
-        </div>
+        <?php
+          if($config['debug'] === 'TRUE'){
+            echo '<div class="callout callout-danger">
+            <h4>Debug Mode Activated</h4>
+  
+            <p>Debug mode is currently activated, you can turn this off in <strong>config.php</strong>. Debug information will be displayed below:</p>
+            <br>
+            <li>Logged in as <strong>'.$actualcid.'</strong></li>
+            <li>Debug mode is <strong>activated</strong></li>
+          </div>';
+          }
+        ?>
         <div class="box box-default">
           <div class="box-header with-border">
             <h3 class="box-title">Blank Box</h3>
