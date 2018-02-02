@@ -6,5 +6,6 @@ $pass = $config['dbPass'];
 $db = $config['dbName'];
 
 $conn = new PDO("mysql:host=$host;dbname=$db", "$user", "$pass") or die;
+$nconn = new mysqli($host, $user, $pass, $db) or die;
 
 ?>

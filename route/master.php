@@ -1,6 +1,7 @@
 <?php
 
 //Content Types
+require('library/getElevation.php');
 
 if(!isset($_GET['content'])){
 	$content = 'index';
