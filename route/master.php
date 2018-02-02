@@ -13,6 +13,7 @@ if(isset($_GET['register']) && $_GET['register'] === 'true'){
 	require('views/register.php');
 	die;
 }
+require('library/siteDisabled.php');
 
 if(isset($_SESSION['cid']) && $content === 'index'){
 	require('views/admin/index.php');
