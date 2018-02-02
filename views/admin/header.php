@@ -15,7 +15,7 @@ try {
           }
       }
   } else {
-      throw new \Exception('Could not load XML');
+      throw new \Exception('The website was unable to load the XML file, please try again later.');
   }
 
 } catch (Exception $e) {
