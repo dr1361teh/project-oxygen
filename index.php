@@ -1,4 +1,4 @@
 <?php
-//Router
+//Get the router
 require('route/master.php');
 ?>
