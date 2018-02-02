@@ -52,9 +52,9 @@ require('header.php');
   <footer class="main-footer">
     <div class="container">
       <div class="pull-right hidden-xs">
-        <b>Version</b> PRE-APLHA 0.0.1
+        <b>Version</b> <?php echo $config['version']; ?>
       </div>
-      <strong>Copyright &copy; 2017-2018 <a href="https://vatfrance.org">VATFRANCE</a>.</strong> All rights
+      <strong>Copyright &copy; <?php echo date('Y');?> <a href="https://vatfrance.org">VATSIM France</a>.</strong> All rights
       reserved.
     </div>
     <!-- /.container -->
