@@ -92,7 +92,7 @@ require 'header.php';
                         }
                         echo '<td>'.$supportID.'</td>
                         <td>'.$supportAssigned.'</td>
-                        <td>'.date('M j Y \a\t H i', $supportDate).'</td>
+                        <td>'.date('M j Y \a\t H:i', $supportDate).'</td>
                         <td>'.$supStatus.'</td>
                         <td>'.$supportSubject.'</td>
                         <td><a href="index.php?content=support?id='.$supportID.'">Open</a></td>
