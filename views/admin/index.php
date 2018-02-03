@@ -38,6 +38,9 @@ require('header.php');
             <li>Logged in as <strong>'.$actualcid.'</strong></li>
             <li>Debug mode is <strong>activated</strong></li>
             <li>Your staff elevation status is <strong>'.$staff.'</strong></li>
+            <li>Browser data: <strong>'.$_SERVER['HTTP_USER_AGENT'].'</strong></li>
+            <li>IP address: <strong>'.$_SERVER['REMOTE_ADDR'].'</strong></li>
+            <li>PHP version: <strong>PHP '.phpversion().'</strong></li>
           </div>';
           }
         ?>
