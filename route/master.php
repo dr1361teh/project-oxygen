@@ -28,6 +28,7 @@ if(isset($_SESSION['cid']) && $content === 'index'){
 		$_SESSION['errcode'] = '0x007';
 		$_SESSION['errmsg'] = 'Failed to open page.';
 		$_SESSION['errdesc'] = 'The file '.$content.'.php does not exist';
+		$_SESSION['fileName'] = $content;
 		header('Location: index.php?content=error');
 	}
 //if all else above fails:
