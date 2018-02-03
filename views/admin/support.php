@@ -76,6 +76,7 @@ require 'header.php';
                 </tr>
                 <?php
                     while($listrows = $listquery->fetch_assoc()){
+                        //useless varaible declarations
                         $supportID = $listrows['id'];
                         $supportSubject = $listrows['subject'];
                         $supportBody = $listrows['body'];
