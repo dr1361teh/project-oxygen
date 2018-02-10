@@ -16,6 +16,9 @@ if($method === 'post'){
 require('get.php');
 
 function returnToURL($dest){
+    unset($notif);
+    unset($for);
+    unset($actor);
     header("Location: $dest");
 }
 
