@@ -9,7 +9,7 @@ $config['dbName'] = 'vatfrance';
 
 //Modes
 $config['debug'] = 'TRUE'; //Debug Mode - FALSE (off), TRUE (on) | DO NOT LEAVE THIS ENABLED FOR LIVE SITE!
-$config['siteEnabled'] = 'FALSE'; //Enable website for everyone
+$config['siteEnabled'] = 'TRUE'; //Enable website for everyone
 
 //Site Details
 $config['version'] = 'PRE-ALPHA 0.0.1'; //Version Control

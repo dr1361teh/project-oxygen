@@ -4,8 +4,7 @@
 <footer class="main-footer">
     <div class="container">
       <div class="pull-right hidden-xs">
-        <b>Version</b> <?php echo $config['version']; ?>
-      </div>
+      <?php echo gmdate('H:i')?> <b>UTC</b></div>
       <strong>Copyright &copy; <?php echo date('Y');?> <a href="https://vatfrance.org">VATSIM France</a>.</strong> All rights
       reserved.
     </div>

@@ -2,49 +2,53 @@
 //Header File (global for admin dashboard)
 
 try {
-  if (empty($_SESSION['cid'])) {
-      throw new \Exception('CID is not defined');
-  }
+    if (empty($_SESSION['cid'])) {
+        throw new \Exception('CID is not defined');
+    }
 
-  $result = [];
-  if ($xml = simplexml_load_file('http://api.vateud.net/members/FRA.xml')) {
-      foreach ($xml->member as $member) {
-          if ($member->cid == $_SESSION['cid']) {
-              $result = (array) $member;
-              break;
-          }
-      }
-  } else {
-      throw new \Exception('The website was unable to load the XML file, please try again later.');
-  }
+    $result = [];
+    if ($xml = simplexml_load_file('http://api.vateud.net/members/FRA.xml')) {
+        foreach ($xml->member as $member) {
+            if ($member->cid == $_SESSION['cid']) {
+                $result = (array) $member;
+                apiData($result);
+                break;
+            }
+        }
+    } else {
+        throw new \Exception('The website was unable to load the XML file, please try again later.');
+    }
 
 } catch (Exception $e) {
-  // store in a variable if you wish
-  die($e->getMessage());
+    // store in a variable if you wish
+    die($e->getMessage());
 }
-if(empty($result)){
-  $_SESSION['errcode'] = '0x002';
-  $_SESSION['errmsg'] = "You cannot login because the CID, <i>$actualcid</i> is not a member of the VATSIM France division.";
-  $_SESSION['errdesc'] = "Please contact your division director.";
-  header('Location: index.php?content=error');
+if (empty($result)) {
+    $_SESSION['errcode'] = '0x002';
+    $_SESSION['errmsg'] = "You cannot login because the CID, <i>$actualcid</i> is not a member of the VATSIM France division.";
+    $_SESSION['errdesc'] = "Please contact your division director.";
+    header('Location: index.php?content=error');
 }
 // require('../config.php');
 // require('../connection.php');
 
-//Create session variables
-$_SESSION['firstname'] = $result['firstname'];
-$_SESSION['lastname'] = $result['lastname'];
-$_SESSION['regdate'] = $result['reg-date'];
-$_SESSION['active'] = $result['active'];
-$_SESSION['atcrating'] = $result['humanized-atc-rating'];
-$_SESSION['pilotrating'] = $result['humanized-pilot-rating'];
-$_SESSION['country']  = $result['country'];
+function apiData($res)
+{
+    //Create session variables
+    $_SESSION['firstname'] = $res['firstname'];
+    $_SESSION['lastname'] = $res['lastname'];
+    $_SESSION['regdate'] = $res['reg-date'];
+    $_SESSION['active'] = $res['active'];
+    $_SESSION['atcrating'] = $res['humanized-atc-rating'];
+    $_SESSION['pilotrating'] = $res['humanized-pilot-rating'];
+    $_SESSION['country'] = $res['country'];
+}
 ?>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?php if(isset($title)){ echo $title; } else { echo 'VATFRANCE'; }?></title>
+  <title><?php if (isset($title)) {echo $title;} else {echo 'VATFRANCE';}?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -72,7 +76,7 @@ $_SESSION['country']  = $result['country'];
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
   <body class="hold-transition skin-blue layout-top-nav">
   <div class="wrapper">
-  
+
     <header class="main-header">
       <nav class="navbar navbar-static-top">
         <div class="container">
@@ -82,7 +86,7 @@ $_SESSION['country']  = $result['country'];
               <i class="fa fa-bars"></i>
             </button>
           </div>
-  
+
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
             <ul class="nav navbar-nav">
@@ -182,7 +186,7 @@ $_SESSION['country']  = $result['country'];
                 </ul>
               </li>
               <!-- /.messages-menu -->
-  
+
               <!-- Notifications Menu -->
               <li class="dropdown notifications-menu">
                 <!-- Menu toggle button -->
@@ -197,7 +201,7 @@ $_SESSION['country']  = $result['country'];
                     <ul class="menu">
                       <li><!-- start notification -->
                         <a href="#">
-                          <i class="fa fa-users text-aqua"></i> Example Notification  
+                          <i class="fa fa-users text-aqua"></i> Example Notification
                         </a>
                       </li>
                       <!-- end notification -->
@@ -249,15 +253,15 @@ $_SESSION['country']  = $result['country'];
                   <!-- The user image in the navbar-->
                   <img src="styles/img/user2-160x160.jpg" class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class="hidden-xs"><?php echo $_SESSION['firstname'].' '.$_SESSION['lastname'];?></span>
+                  <span class="hidden-xs"><?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
                     <img src="styles/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-  
+
                     <p style="color:black !important;">
-                      <?php echo $_SESSION['cid'].' - <strong>'.$_SESSION['atcrating'].'</strong>'; ?>
+                      <?php echo $_SESSION['cid'] . ' - <strong>' . $_SESSION['atcrating'] . '</strong>'; ?>
                       <small>Created <?php echo substr($_SESSION['regdate'], 0, 10); ?></small>
                     </p>
                   </li>
