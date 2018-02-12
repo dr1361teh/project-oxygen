@@ -1,6 +1,11 @@
 <?php
 //Header File (global for admin dashboard)
 
+
+//Get Notifications
+require('library/events/notify/master.php');
+
+
 try {
     if (empty($_SESSION['cid'])) {
         throw new \Exception('CID is not defined');
@@ -152,39 +157,7 @@ function apiData($res)
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <!-- Messages: style can be found in dropdown.less-->
-              <li class="dropdown messages-menu">
-                <!-- Menu toggle button -->
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-envelope-o"></i>
-                  <span class="label label-success">0</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="header">You have 0 messages</li>
-                  <li>
-                    <!-- inner menu: contains the messages -->
-                    <ul class="menu">
-                      <li><!-- start message -->
-                        <a href="#">
-                          <div class="pull-left">
-                            <!-- User Image -->
-                            <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                          </div>
-                          <!-- Message title and timestamp -->
-                          <h4>
-                            Example Message
-                            <small><i class="fa fa-clock-o"></i> 0 mins</small>
-                          </h4>
-                          <!-- The message -->
-                          <p>Lpasum Example Madum patum</p>
-                        </a>
-                      </li>
-                      <!-- end message -->
-                    </ul>
-                    <!-- /.menu -->
-                  </li>
-                  <li class="footer"><a href="#">See All Messages</a></li>
-                </ul>
-              </li>
+              
               <!-- /.messages-menu -->
 
               <!-- Notifications Menu -->
@@ -192,60 +165,34 @@ function apiData($res)
                 <!-- Menu toggle button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="fa fa-bell-o"></i>
-                  <span class="label label-warning">0</span>
+                  <span class="label label-warning"><?php echo $notifrCount; ?></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li class="header">You have 0 notifications</li>
+                  <li class="header">You have <?php echo $notifrCount; ?> notifications</li>
                   <li>
                     <!-- Inner Menu: contains the notifications -->
                     <ul class="menu">
-                      <li><!-- start notification -->
+                    <?php
+                    $notifqueryResult = $nconn->query($query);
+                      while($notifResult = $notifqueryResult->fetch_assoc()){
+                        $notifrName = $notifResult['name'];
+                        $notifrMessage = $notifResult['message'];
+                        $notifrDate = date('j M H:i', $notifResult['date']);
+                        echo '
+                        <li>
                         <a href="#">
-                          <i class="fa fa-users text-aqua"></i> Example Notification
+                          <i class="fa fa-users text-aqua"></i> '.$notifrName.'
                         </a>
-                      </li>
+                      </li>';
+                    }
+                    ?>
                       <!-- end notification -->
                     </ul>
                   </li>
                   <li class="footer"><a href="#">View all</a></li>
                 </ul>
               </li>
-              <!-- Tasks Menu -->
-              <li class="dropdown tasks-menu">
-                <!-- Menu Toggle Button -->
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-flag-o"></i>
-                  <span class="label label-danger">0</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="header">You have 0 tasks</li>
-                  <li>
-                    <!-- Inner menu: contains the tasks -->
-                    <ul class="menu">
-                      <li><!-- Task item -->
-                        <a href="#">
-                          <!-- Task title and progress text -->
-                          <h3>
-                            Example Task
-                            <small class="pull-right">0%</small>
-                          </h3>
-                          <!-- The progress bar -->
-                          <div class="progress xs">
-                            <!-- Change the css width attribute to simulate progress -->
-                            <div class="progress-bar progress-bar-aqua" style="width: 0%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                              <span class="sr-only">0% Complete</span>
-                            </div>
-                          </div>
-                        </a>
-                      </li>
-                      <!-- end task item -->
-                    </ul>
-                  </li>
-                  <li class="footer">
-                    <a href="#">View all tasks</a>
-                  </li>
-                </ul>
-              </li>
+              
               <!-- User Account Menu -->
               <li class="dropdown user user-menu">
                 <!-- Menu Toggle Button -->

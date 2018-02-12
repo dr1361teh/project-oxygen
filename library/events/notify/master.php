@@ -2,15 +2,7 @@
 /* 
 Notification system using MySQL and not socket.io because node.js is bad lol
 */
-$uri = $_GET['url'];
 
-$notif = $_SESSION['notification'];
-$notifUser = $_SESSION['user'];
-$notifActor = $_SESSION['actor'];
-$notifMsg = $_SESSION['message'];
-$notifDate = date();
-
-require('../../connection.php');
 
 //Send Notifcation
 function post(){
@@ -18,16 +10,28 @@ function post(){
 }
 
 //Get Notifications
-function get(){
-    require('get.php');
+require('db.php');
+$mycid = $_SESSION['cid'];
+$query = "SELECT * FROM notifications WHERE user = '$mycid';";
+$getrows = "SELECT * FROM notifications WHERE user = '$mycid';";
+if($nconn->query($query)){
+    if($notifResult = $nconn->query($getrows)){
+        $notifrCount = $notifResult->num_rows;
+    } else {
+        $_SESSION['errcode'] = '0x011';
+        $_SESSION['errmsg'] = "Could not fetch notifications.";
+        $_SESSION['errdesc'] = "Please try again later.";
+        header('Location: index.php?content=error');    
+        die;
+    }
+     returnToURL($query);
 }
 
-function returnToURL($dest){
+function returnToURL($notifNum){
     unset($notif);
     unset($notifUser);
     unset($notifActor);
     unset($notifMsg);
-    header("Location: $dest");
 }
 
 ?>
