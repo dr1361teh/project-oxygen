@@ -168,7 +168,7 @@ function apiData($res)
                   <span class="label label-warning"><?php echo $notifrCount; ?></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li class="header">You have <?php echo $notifrCount; ?> notification<?php if($notifrCount > 1){ echo 's'; }else{ echo ''; } ?></li>
+                  <li class="header">You have <?php echo $notifrCount; ?> notification<?php if($notifrCount > 1){ echo 's'; }else{ echo ''; } ?>.</li>
                   <li>
                     <!-- Inner Menu: contains the notifications -->
                     <ul class="menu">
