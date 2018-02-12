@@ -5,6 +5,10 @@
 //Get Notifications
 require('library/events/notify/master.php');
 
+//Auto Logout
+$_SESSION['expire'] = time();
+
+//Check if session expired
 
 try {
     if (empty($_SESSION['cid'])) {
@@ -51,6 +55,31 @@ function apiData($res)
 ?>
 <html>
 <head>
+<script>
+// Set timeout variables.
+console.log('Timeout ready');
+var timoutNow = 900000; // Timeout in 15 mins would be 900000.
+var logoutUrl = 'library/events/logout.php'; // URL to logout page.
+StartTimers();
+var timeoutTimer;
+
+// Start timers.
+function StartTimers() {
+    timeoutTimer = setTimeout("IdleTimeout()", timoutNow);
+}
+
+// Reset timers.
+function ResetTimers() {
+    clearTimeout(timeoutTimer);
+    StartTimers();
+}
+
+
+// Logout the user.
+function IdleTimeout() {
+    window.location = logoutUrl;
+}
+</script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title><?php if (isset($title)) {echo $title;} else {echo 'VATFRANCE';}?></title>
