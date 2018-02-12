@@ -15,4 +15,7 @@ $config['siteEnabled'] = 'TRUE'; //Enable website for everyone
 $config['version'] = 'PRE-ALPHA 0.0.1'; //Version Control
 $config['siteDisabledBypassLevel'] = '1'; //Set the minimum user elevation level required (staff level) to bypass 'Disabled Site' screen | 1 = Regular users cannot access
 
+//UI
+$config['defaultTheme'] = 'light';
+
 ?>
