@@ -168,7 +168,7 @@ function apiData($res)
                   <span class="label label-warning"><?php echo $notifrCount; ?></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li class="header">You have <?php echo $notifrCount; ?> notifications</li>
+                  <li class="header">You have <?php echo $notifrCount; ?> notification<?php if($notifrCount > 1){ echo 's'; }else{ echo ''; } ?></li>
                   <li>
                     <!-- Inner Menu: contains the notifications -->
                     <ul class="menu">
@@ -177,11 +177,11 @@ function apiData($res)
                       while($notifResult = $notifqueryResult->fetch_assoc()){
                         $notifrName = $notifResult['name'];
                         $notifrMessage = $notifResult['message'];
-                        $notifrDate = date('j M H:i', $notifResult['date']);
+                        $notifrDate = date('j M \a\t H:i', $notifResult['date']);
                         echo '
                         <li>
                         <a href="#">
-                          <i class="fa fa-users text-aqua"></i> '.$notifrName.'
+                          <i class="fa fa-users text-aqua"></i> <b>'.$notifrName.' </b><span style="color:#bfbfbf;font-size:13.5px;">'.$notifrDate.'</span><p style="color:#595959;">'.$notifrMessage.'</p>
                         </a>
                       </li>';
                     }
