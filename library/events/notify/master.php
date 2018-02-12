@@ -2,23 +2,31 @@
 /* 
 Notification system using MySQL and not socket.io because node.js is bad lol
 */
-$method = $_GET['method'];
 $uri = $_GET['url'];
 
 $notif = $_SESSION['notification'];
-$for = $_SESSION['user'];
-$actor = $_SESSION['actor'];
+$notifUser = $_SESSION['user'];
+$notifActor = $_SESSION['actor'];
+$notifMsg = $_SESSION['message'];
+$notifDate = date();
 
 require('../../connection.php');
-if($method === 'post'){
+
+//Send Notifcation
+function post(){
     require('post.php');
 }
-require('get.php');
+
+//Get Notifications
+function get(){
+    require('get.php');
+}
 
 function returnToURL($dest){
     unset($notif);
-    unset($for);
-    unset($actor);
+    unset($notifUser);
+    unset($notifActor);
+    unset($notifMsg);
     header("Location: $dest");
 }
 
