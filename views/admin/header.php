@@ -1,7 +1,7 @@
 <?php
 //Header File (global for admin dashboard)
-
-
+$country = $config['country'];
+$xml = "http://api.vateud.net/members/$country.xml";
 //Get Notifications
 require('library/events/notify/master.php');
 
@@ -18,7 +18,7 @@ try {
     }
 
     $result = [];
-    if ($xml = simplexml_load_file('http://api.vateud.net/members/FRA.xml')) {
+    if ($xml = simplexml_load_file($xml)) {
         foreach ($xml->member as $member) {
             if ($member->cid == $_SESSION['cid']) {
                 $result = (array) $member;
@@ -54,13 +54,16 @@ function apiData($res)
     $_SESSION['pilotrating'] = $res['humanized-pilot-rating'];
     $_SESSION['country'] = $res['country'];
 }
+
+//Auto logout
+$autoLogoutTime = $config['autoLogoutTime'] * 1000;
 ?>
 <html>
 <head>
 <script>
 // Set timeout variables.
 console.log('Timeout ready');
-var timoutNow = 900000; // Timeout in 15 mins would be 900000.
+var timoutNow = <?php echo $autoLogoutTime; ?>; // Timeout in 15 mins would be 900000.
 var logoutUrl = 'library/events/logout.php'; // URL to logout page.
 StartTimers();
 var timeoutTimer;
