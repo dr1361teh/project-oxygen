@@ -14,8 +14,10 @@ $config['siteEnabled'] = 'TRUE'; //Enable website for everyone
 //Site Details
 $config['version'] = 'PRE-ALPHA 0.0.1'; //Version Control
 $config['siteDisabledBypassLevel'] = '1'; //Set the minimum user elevation level required (staff level) to bypass 'Disabled Site' screen | 1 = Regular users cannot access
+$config['country'] = 'FRA'; //Country identifier, for example: FRA = France. First three letters (can be found on VATEUD API site)
 
 //UI
 $config['defaultTheme'] = 'light';
+
 
 ?>
