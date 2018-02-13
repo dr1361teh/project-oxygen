@@ -11,6 +11,8 @@ if($listquery){
     header('Location: index.php?content=error');  
 }
 
+
+
 ?>
 <?php
 require 'header.php';
@@ -91,8 +93,32 @@ require 'header.php';
                         } elseif($supportStatus === '2'){
                             $supStatus = '<span class="label label-warning">Pending</span>';
                         }
+                        //Get support assignee
+                        try {
+                          if (empty($supportAssigned)) {
+                              throw new \Exception('Support assignee is not defined');
+                          }
+                      
+                          $result = [];
+                          if ($xml = simplexml_load_file('http://api.vateud.net/members/FRA.xml')) {
+                              foreach ($xml->member as $member) {
+                                  if ($member->cid == $supportAssigned) {
+                                      $result = (array) $member;
+                                      apiData($result);
+                                      break;
+                                  }
+                              }
+                          } else {
+                              throw new \Exception('The website was unable to load the XML file, please try again later.');
+                          }
+                      
+                      } catch (Exception $e) {
+                          // store in a variable if you wish
+                          die($e->getMessage());
+                      }
+                      $assignedTo = $result['firstname'].' '.$result['lastname'];
                         echo '<td>'.$supportID.'</td>
-                        <td>'.$supportAssigned.'</td>
+                        <td>'.$assignedTo.'</td>
                         <td>'.date('M j Y \a\t H:i', $supportDate).'</td>
                         <td>'.$supStatus.'</td>
                         <td>'.$supportSubject.'</td>
