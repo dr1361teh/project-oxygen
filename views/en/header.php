@@ -10,7 +10,8 @@ $_SESSION['expire'] = time();
 
 //Check if session expired
 
-
+//Get user language preference
+require('library/getLanguage.php');
 
 //Get theme
 require('library/getTheme.php');
