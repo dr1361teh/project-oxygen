@@ -10,6 +10,7 @@ if(isset($_COOKIE['lang'])){
 	 $lang = $_COOKIE['lang'];
 }
 
+
 if(!isset($_GET['content'])){
 	$content = 'dashboard';
 } else {
@@ -28,6 +29,12 @@ if($lang === 'en'){
 		require('views/en/dashboard.php');
 	} elseif($content === 'error'){
 		require('modules/error.php');
+		//Check if error code exists
+		if(isset($_SESSION['errcode'])){
+			error($_SESSION['errcode'], $_SESSION['errmsg'], $_SESSION['errdesc']);
+		} else {
+			header('Location: index.php?content=dashboard');
+		}
 	} elseif(!isset($_SESSION['cid'])){
 		require('views/login.php');
 	} elseif($_SESSION['cid'] && isset($content)){
@@ -66,11 +73,15 @@ if($lang === 'en'){
 		}
 	//if all else above fails:
 	} else {
-		$_SESSION['errcode'] = '0x006';
-		$_SESSION['errmsg'] = 'Impossible d\'ouvrir la page.';
-		$_SESSION['errdesc'] = 'Réessayer.';
-		header('Location: index.php?content=error');
+		
 	}	
+}
+
+function error($code, $msg, $desc){
+	require('modules/error.php');
+	unset($_SESSION['errcode']);
+    unset($_SESSION['errmsg']);
+    unset($_SESSION['errdesc']);
 }
 
 require('library/footerAlerts.php');
