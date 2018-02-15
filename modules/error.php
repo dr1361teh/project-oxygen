@@ -27,7 +27,9 @@ if(!isset($_SESSION['errcode'])){
         echo "<p><strong>Debug Mode</strong>: The file ".dirname(__DIR__)."/views/admin/$fileDir.php does not exist</p>";
         unset($_SESSION['filename']);
     } ?>
-    <p>Do not reload this page!</p>
+    <p>
+    Do not reload this page!
+    </p>
     <a href="index.php">Home</a> | <a onclick="window.history.go(-1); return false;">Go Back</a>
  <?php
         if($_SESSION['errcode'] === '0x002'){
