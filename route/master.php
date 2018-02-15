@@ -6,8 +6,12 @@ require('library/getElevation.php');
 if(isset($_COOKIE['lang'])){
 	$lang = $_COOKIE['lang'];
 } else {
-	 setcookie('lang', 'en', 2147483647);
+	 setcookie('lang', $config['lang'], 2147483647);
 	 $lang = $_COOKIE['lang'];
+}
+
+if(empty($lang)){
+	$lang = $config['lang'];
 }
 
 
@@ -28,8 +32,6 @@ if($lang === 'en'){
 	if(isset($_SESSION['cid']) && $content === 'dashboard'){
 		require('views/en/dashboard.php');
 	} elseif($content === 'error'){
-		require('modules/error.php');
-		//Check if error code exists
 		if(isset($_SESSION['errcode'])){
 			error($_SESSION['errcode'], $_SESSION['errmsg'], $_SESSION['errdesc']);
 		} else {
@@ -58,7 +60,11 @@ if($lang === 'en'){
 	if(isset($_SESSION['cid']) && $content === 'dashboard'){
 		require('views/fr/dashboard.php');
 	} elseif($content === 'error'){
-		require('modules/error.php');
+		if(isset($_SESSION['errcode'])){
+			error($_SESSION['errcode'], $_SESSION['errmsg'], $_SESSION['errdesc']);
+		} else {
+			header('Location: index.php?content=dashboard');
+		}
 	} elseif(!isset($_SESSION['cid'])){
 		require('views/login.php');
 	} elseif($_SESSION['cid'] && isset($content)){
