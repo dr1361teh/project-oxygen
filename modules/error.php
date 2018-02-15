@@ -24,7 +24,7 @@ if(!isset($_SESSION['errcode'])){
     </p>
     <?php if($_SESSION['errcode'] === '0x007'){
         $fileDir = $_SESSION['fileName'];
-        echo "<p><strong>Debug Mode</strong>: The file <?php echo dirname(__DIR__);?>/views/admin/$fileDir.php does not exist</p>";
+        echo "<p><strong>Debug Mode</strong>: The file ".dirname(__DIR__)."/views/admin/$fileDir.php does not exist</p>";
         unset($_SESSION['filename']);
     } ?>
     <p>Do not reload this page!</p>
