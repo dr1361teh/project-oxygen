@@ -1,8 +1,7 @@
 <?php
-$title = 'controller=roster';
+$title = 'Controller Roster';
+require('../../library/getRoster.php');
 
-?>
-<?php
 require('header.php');
 ?>
 
@@ -73,167 +72,40 @@ require('header.php');
                 <td>Training Staff</td>
                 <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
                 </tr>
-                <tr>
-                <td>Bernard Husson</td>
-                <td>1131230</td>
-                <td>S3</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Cathy Mariani</td>
-                <td>1183082</td>
-                <td>C3</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Chriss Klosowski </td>
-                <td>1306415</td>
-                <td>C1</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>David Petit </td>
-                <td>1273992</td>
-                <td>C1</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Eric Lavorel  </td>
-                <td>1342825</td>
-                <td>S3</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Florian Rimoli</td>
-                <td>1225664</td>
-                <td>C1</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>François-Xavier Obert </td>
-                <td>1086470</td>
-                <td>I1</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Jean louis Richon </td>
-                <td>922139</td>
-                <td>C1</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Jean Tirancourt </td>
-                <td>1047231</td>
-                <td>S3</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Joel Lagarrigue </td>
-                <td>1107750</td>
-                <td>C1</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Loic LEBAIN </td>
-                <td>1059663</td>
-                <td>C1</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Marc GUETRE </td>
-                <td>986422</td>
-                <td>C1</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Patrice Jouan </td>
-                <td>916063</td>
-                <td>S3</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Patrick DUFLOT</td>
-                <td>1018762</td>
-                <td>C1</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Patrick fuchez </td>
-                <td>819114</td>
-                <td>C3</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Pierre Ferran </td>
-                <td>1259058</td>
-                <td>C1</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Pierre Messager </td>
-                <td>1190244</td>
-                <td>S3</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Raphël Guillod </td>
-                <td>921950</td>
-                <td>C1</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Reda FAIZ </td>
-                <td>1171306</td>
-                <td>C1</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Samuel Lafage </td>
-                <td>1176432</td>
-                <td>C1</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Simon Pechinot </td>
-                <td>1162027</td>
-                <td>S3</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Thomas Merle </td>
-                <td>1199123</td>
-                <td>I1</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
-                <tr>
-                <td>Walid AMAR </td>
-                <td>1052472</td>
-                <td>C1</td>
-                <td>Training Staff</td>
-                <td><span class="label label-success">LFPG_DEL/GND/TWR/APP</span></td>
-                </tr>
+                <?php
+                  while($rows = $result->fetch_assoc()){
+                    try {
+                      if (empty($_SESSION['cid'])) {
+                          throw new \Exception('CID is not defined');
+                      }
+                  
+                      $result = [];
+                      if ($xml = simplexml_load_file($xml)) {
+                          foreach ($xml->member as $member) {
+                              if ($member->cid == $rows['cid']) {
+                                  $xmlres = (array) $member;
+                                  apiData($result);
+                                  break;
+                              }
+                          }
+                      } else {
+                          throw new \Exception('The website was unable to load the XML file, please try again later.');
+                      }
+                  
+                  } catch (Exception $e) {
+                      // store in a variable if you wish
+                      die($e->getMessage());
+                  }
+                    echo '<tr>
+                    <td>'.$xmlres['firstname'].' '.$xmlres['lastname'].'</td>
+                    <td>'.$rows['cid'].'</td>
+                    <td>'.$xmlres['humanized-atc-rating'].'</td>
+                    <td><span class="label label-success">LFPG_'.$rows['approvals'].'</td>
+                    ';
+
+                  }
+
+                ?>
 
 
               </table>
