@@ -11,7 +11,7 @@ if(isset($_COOKIE['lang'])){
 }
 
 if(!isset($_GET['content'])){
-	$content = 'index';
+	$content = 'dashboard';
 } else {
 	$content = $_GET['content'];
 }
@@ -24,8 +24,8 @@ require('library/siteDisabled.php');
 
 //Language ENGLISH
 if($lang === 'en'){
-	if(isset($_SESSION['cid']) && $content === 'index'){
-		require('views/en/index.php');
+	if(isset($_SESSION['cid']) && $content === 'dashboard'){
+		require('views/en/dashboard.php');
 	} elseif($content === 'error'){
 		require('modules/error.php');
 	} elseif(!isset($_SESSION['cid'])){
@@ -48,8 +48,8 @@ if($lang === 'en'){
 		header('Location: index.php?content=error');
 	}	
 } elseif($lang === 'fr'){
-	if(isset($_SESSION['cid']) && $content === 'index'){
-		require('views/fr/index.php');
+	if(isset($_SESSION['cid']) && $content === 'dashboard'){
+		require('views/fr/dashboard.php');
 	} elseif($content === 'error'){
 		require('modules/error.php');
 	} elseif(!isset($_SESSION['cid'])){
