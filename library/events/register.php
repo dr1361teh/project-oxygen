@@ -56,6 +56,7 @@ if (strlen($cid) === 7) {
                     ':lastip' => $lastip,
                     ':ebld' => 0,
                 ));
+                sendWelcomeEmail($email, $cid);
                 //Set tables
                 $_SESSION['success'] = 'Application sent.';
                 header('Location: ../../index.php?register=true');
@@ -74,4 +75,14 @@ if (strlen($cid) === 7) {
 } else {
     $_SESSION['error'] = 'CID must be 7 characters.';
     header('Location: ../../index.php?register=true');
+}
+
+function sendWelcomeEmail($address, $name){
+    $subject = 'Welcome to VATFRANCE';
+    $message = 'email message here';
+    $headers = 'From: hq@vatfrance.org' . "\r\n" .
+    'Reply-To: hq@vatfrance.org' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
+    mail($address, $subject, $message, $headers);
 }
