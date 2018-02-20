@@ -1,5 +1,7 @@
 <?php
-include_once('includes/header.php');
+$title = 'Welcome';
+
+include('includes/header.php');
 ?>
 		<div id="wrapper"> 			
 				<!-- Site Content -->
