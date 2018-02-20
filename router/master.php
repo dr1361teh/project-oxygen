@@ -56,7 +56,7 @@ if($lang === 'en'){
 	}	
 } elseif($lang === 'fr'){
 	if(isset($content) && $content === 'index'){
-		require('views/en/index.php');
+		require('views/fr/index.php');
 	} elseif($content === 'error'){
 		if(isset($_SESSION['errcode'])){
 			error($_SESSION['errcode'], $_SESSION['errmsg'], $_SESSION['errdesc']);
@@ -64,8 +64,8 @@ if($lang === 'en'){
 			header('Location: index.php?content=index');
 		}
 	} elseif(isset($content)){
-		if(file_exists('views/en/'.$content.'.php')){
-			require('views/en/'.$content.'.php');
+		if(file_exists('views/fr/'.$content.'.php')){
+			require('views/fr/'.$content.'.php');
 		}else{
 			$_SESSION['errcode'] = '0x007';
 			$_SESSION['errmsg'] = 'Failed to open page.';
