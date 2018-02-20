@@ -1,5 +1,5 @@
 # Project OxyGen
-Welcome to the new proposed VATFRANCE HQ system (dubbed OxyGen) developed by whenofficial & chrissKL as part of [WHENSTUDIOS](https://github.com/WHENSTUDIOS).
+Welcome to the new proposed VATFRANCE user access and administration system (dubbed OxyGen) developed by whenofficial & chrissKL as part of [WHENSTUDIOS](https://github.com/WHENSTUDIOS).
 This project is proposed to offer the VATSIM France division a new, modern and fully-functioning HQ system that enables features for staff and pilots alike.
 
 ## License
