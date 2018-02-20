@@ -1,0 +1,5 @@
+<?php
+//MySQLi Database Init
+
+
+?>
