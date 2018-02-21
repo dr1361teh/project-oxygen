@@ -68,12 +68,5 @@ if($lang === 'en'){
 	}	
 }
 
-function error($code, $msg, $desc){
-	require_once('modules/error.php');
-	unset($_SESSION['errcode']);
-    unset($_SESSION['errmsg']);
-    unset($_SESSION['errdesc']);
-}
-
 // require('library/footerAlerts.php');
 ?>

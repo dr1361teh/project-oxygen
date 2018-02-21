@@ -14,7 +14,7 @@ if(!isset($code)){
 }
 ?>
 
-<link rel="stylesheet" href="styles/css/AdminLTE.min.css">
+<link rel="stylesheet" href="assets/css/bootstrap-theme.css">
 <h2 style='color:red'>Error</h2>
     <h3>ERRCODE: 
         <strong><?php echo $code;?></strong>
