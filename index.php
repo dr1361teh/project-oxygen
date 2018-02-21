@@ -3,8 +3,8 @@ session_start();
 
 //Get required files
 require_once('model/config/config.php');
-require_once('model/database/mysqli.php');
 require_once('router/master.php');
+require_once('model/database/mysqli.php');
 
 //Check the client to see if user is running server on localhost
 if($_SERVER['REMOTE_ADDR'] === '::1' || '127.0.0.1' || 'localhost'){

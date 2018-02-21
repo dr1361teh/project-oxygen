@@ -1,12 +1,13 @@
 <?php
-//Get the request loader
-require_once('lib/request/master.req.php');
+require('lib/request/master.req.php');
 //Get the VATEUD API
 require('api/eu.php');
 
 //Call requests
-reqLanguage();
-getAPI();
+reqLanguage($config['defaultLanguage']);
+if(isset($_SESSION['cid'])){
+	getAPI();
+}
 
 
 //Check if the content GET request is set
@@ -17,7 +18,7 @@ if(!isset($_GET['content'])){
 }
 
 //Language ENGLISH
-if($lang === 'en'){
+if($_COOKIE['lang'] === 'en'){
 	if(isset($content) && $content === 'index'){
 		require('views/en/index.php');
 	} elseif($content === 'error'){
@@ -44,7 +45,7 @@ if($lang === 'en'){
 		header('Location: index.php?content=error');
 	}	
 //Language FRANCE
-} elseif($lang === 'fr'){
+} elseif($_COOKIE['lang'] === 'fr'){
 	if(isset($content) && $content === 'index'){
 		require('views/fr/index.php');
 	} elseif($content === 'error'){
