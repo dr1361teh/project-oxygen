@@ -3,16 +3,7 @@
 //Content Types
 // require('library/getElevation.php');
 
-if(isset($_COOKIE['lang'])){
-	$lang = $_COOKIE['lang'];
-} else {
-	 setcookie('lang', $config['lang'], 2147483647);
-	 $lang = $_COOKIE['lang'];
-}
-
-if(empty($lang)){
-	$lang = $config['lang'];
- }
+require_once('lib/request/language.req.php');
 
 
 if(!isset($_GET['content'])){
