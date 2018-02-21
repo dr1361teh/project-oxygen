@@ -18,4 +18,5 @@ require_once('views/en/error.php');
         if($code === '0x002'){
             session_destroy();
         }
+return;
  ?>

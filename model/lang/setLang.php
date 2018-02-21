@@ -7,4 +7,5 @@ setcookie('lang', $lang, 2147483647);
 
 header('Location: ../../index.php?content=index');
 
+return;
 ?>
