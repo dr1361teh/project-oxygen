@@ -1,0 +1,2 @@
+[Wed 21 Feb 2018 13:04:46] Language cookie already exists, continue... | ::1
+[Wed 21 Feb 2018 13:04:46] Connected to database successfully | ::1

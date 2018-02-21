@@ -1,3 +1,5 @@
 .vscode
 settings.json
 model/log/log.txt
+model/log/*.txt
+*.txt
