@@ -47,7 +47,7 @@ if($_COOKIE['lang'] === 'en'){
 //Language FRANCE
 } elseif($_COOKIE['lang'] === 'fr'){
 	if(isset($content) && $content === 'index'){
-		require('views/fr/index.php');
+		require('views/en/index.php');
 	} elseif($content === 'error'){
 		if(isset($_SESSION['errcode'])){
 			error($_SESSION['errcode'], $_SESSION['errmsg'], $_SESSION['errdesc']);
