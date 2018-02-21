@@ -6,6 +6,7 @@ require('api/eu.php');
 
 //Call requests
 reqLanguage();
+getAPI();
 
 //Check if the content GET request is set
 if(!isset($_GET['content'])){

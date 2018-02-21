@@ -33,4 +33,12 @@ function getAPI($cid){
     }    
 }
 
+function apiData($data){
+    //Sets the API data
+    $firstname = $data['firstname'];
+    $lastname = $data['lastname'];
+    $atcr = $data['humanized-atc-rating'];
+    $pilotr = $data['humanized-pilot-rating'];
+}
+
 ?>
