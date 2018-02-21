@@ -14,7 +14,7 @@ function reqLanguage($defaultLang){
 //Request error page with variables
 function error($code, $msg, $desc){
     //Get the error page
-	require_once('lib/handler/error.php');
+	require_once('lib/handlers/error.php');
 	unset($_SESSION['errcode']);
     unset($_SESSION['errmsg']);
     unset($_SESSION['errdesc']);

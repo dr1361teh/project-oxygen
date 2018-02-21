@@ -183,7 +183,7 @@ include('includes/header.php');
 								data-y="354"
 								data-x="152"
 								class="tp-caption sft banner-btn">
-									<a data-toggle="modal" href="external.php" data-target=".donate-form" class="btn btn-default">More Info</a>
+									<a data-toggle="modal" href="index.php?content=external" data-target=".donate-form" class="btn btn-default">More Info</a>
 								</div>
 							</li>
 						</ul>
