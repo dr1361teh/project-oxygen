@@ -54,7 +54,7 @@ include('includes/header.php');
 										
 										Hold an Observer rating and want to gain your Student 1 Rating?
 										
-										Join the Observers Training Session for March!
+										Join the OBS-dedicated Training Session for March!
 									</p>
 								</div>
 
