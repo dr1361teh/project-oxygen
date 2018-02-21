@@ -1,0 +1,6 @@
+[Wed 21 Feb 2018 12:58] Connected to database successfully | ::1
+[Wed 21 Feb 2018 12:59] test | ::1
+[Wed 21 Feb 2018 12:59] Connected to database successfully | ::1
+[Wed 21 Feb 2018 13:01] Language cookie already exists, continue... | ::1
+[Wed 21 Feb 2018 13:01] Language cookie already exists, continue... | ::1
+[Wed 21 Feb 2018 13:01] Connected to database successfully | ::1

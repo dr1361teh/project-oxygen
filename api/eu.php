@@ -23,9 +23,11 @@ function getAPI($cid){
                 }
             }
             debug('XML VATSIM Europe API with FRA was loaded successfully');
+            xlog('XML API was loaded');
         } else {
             //Couldn't load XML
             throw new \Exception('The website was unable to load the XML file, please try again later.');
+            xlog('Unable to load API XML file, cannot continue...');
         }
     
     } catch (Exception $e) {

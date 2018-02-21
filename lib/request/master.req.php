@@ -4,10 +4,11 @@
 //Request user language cookie
 function reqLanguage($defaultLang){
     if(isset($_COOKIE['lang'])){
-
+        xlog('Language cookie already exists, continue...');
     } else {
         // Sets the cookie
          setcookie('lang', $defaultLang, 2147483647);
+         xlog('Set language cookie');
     }
 }
 
@@ -18,6 +19,7 @@ function error($code, $msg, $desc){
 	unset($_SESSION['errcode']);
     unset($_SESSION['errmsg']);
     unset($_SESSION['errdesc']);
+    xlog('Error handler activated');
 }
 
 //Debugger access call for browser debug console logging
