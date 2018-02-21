@@ -2,8 +2,8 @@
 session_start();
 
 //Get the router
-require('library/config/config.php');
-require('library/database/mysqli.php');
+require('model/config/config.php');
+require('model/database/mysqli.php');
 require('router/master.php');
 
 //Check if localhost
