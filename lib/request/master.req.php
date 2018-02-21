@@ -27,5 +27,11 @@ function debug($msg){
     </script>";
 }
 
+function xlog($msg){
+    $path = 'model/log/log.txt';
+    $message = '['.date('D j M Y H:i', time()).'] '.$msg.' | '.$_SERVER['REMOTE_ADDR']."\n";
+    file_put_contents($path, $message, FILE_APPEND);
+}
+
 
 ?>
