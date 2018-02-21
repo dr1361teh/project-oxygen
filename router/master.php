@@ -1,12 +1,11 @@
 <?php
-
-//Content Types
-// require('library/getElevation.php');
-
 //Get the request loader
 require_once('lib/request/master.req.php');
 
+//Call requests
+reqLanguage();
 
+//Check if the content GET request is set
 if(!isset($_GET['content'])){
 	$content = 'index';
 } else {
@@ -40,6 +39,7 @@ if($lang === 'en'){
 		$_SESSION['errdesc'] = 'Please try again.';
 		header('Location: index.php?content=error');
 	}	
+//Language FRANCE
 } elseif($lang === 'fr'){
 	if(isset($content) && $content === 'index'){
 		require('views/fr/index.php');
@@ -69,7 +69,7 @@ if($lang === 'en'){
 }
 
 function error($code, $msg, $desc){
-	require('modules/error.php');
+	require_once('modules/error.php');
 	unset($_SESSION['errcode']);
     unset($_SESSION['errmsg']);
     unset($_SESSION['errdesc']);
