@@ -10,9 +10,9 @@ if(isset($_COOKIE['lang'])){
 	 $lang = $_COOKIE['lang'];
 }
 
-// if(empty($lang)){
-// 	$lang = $config['lang'];
-// }
+if(empty($lang)){
+	$lang = $config['lang'];
+ }
 
 
 if(!isset($_GET['content'])){
@@ -20,12 +20,6 @@ if(!isset($_GET['content'])){
 } else {
 	$content = $_GET['content'];
 }
-// require('library/getCID.php');
-// if(isset($_GET['register']) && $_GET['register'] === 'true'){
-// 	require('views/register.php');
-// 	die;
-// }
-// require('library/siteDisabled.php');
 
 //Language ENGLISH
 if($lang === 'en'){
