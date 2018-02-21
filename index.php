@@ -6,8 +6,6 @@ require('library/config/config.php');
 require('library/database/mysqli.php');
 require('router/master.php');
 
-
-//LEGACY
 //Check if localhost
 if($_SERVER['REMOTE_ADDR'] === '::1' || '127.0.0.1' || 'localhost'){
     if($_SERVER['REMOTE_ADDR'] === '::1'){
