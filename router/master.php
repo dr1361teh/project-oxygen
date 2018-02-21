@@ -7,6 +7,9 @@ require('api/eu.php');
 reqLanguage($config['defaultLanguage']);
 if(isset($_SESSION['cid'])){
 	getAPI();
+	xlog('User has an active session (logged in)');
+} else {
+	xlog('User not logged in');
 }
 
 
