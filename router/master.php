@@ -8,6 +8,7 @@ require('api/eu.php');
 reqLanguage();
 getAPI();
 
+
 //Check if the content GET request is set
 if(!isset($_GET['content'])){
 	$content = 'index';
