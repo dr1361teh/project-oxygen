@@ -3,7 +3,7 @@
 //Content Types
 // require('library/getElevation.php');
 
-require_once('lib/request/language.req.php');
+require_once('lib/request/master.req.php');
 
 
 if(!isset($_GET['content'])){
