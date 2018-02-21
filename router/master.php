@@ -1,6 +1,8 @@
 <?php
 //Get the request loader
 require_once('lib/request/master.req.php');
+//Get the VATEUD API
+require('api/eu.php');
 
 //Call requests
 reqLanguage();

@@ -1,6 +1,5 @@
 <?php
 //MySQLi Database Init
-require('library/config/config.php');
 if($sqli = new mysqli($config['dbHost'], $config['dbUser'], $config['dbPass'], $config['dbName'])){
 
 } else {

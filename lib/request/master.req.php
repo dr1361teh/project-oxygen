@@ -23,5 +23,12 @@ function error($code, $msg, $desc){
     unset($_SESSION['errdesc']);
 }
 
+//Debugger access call for browser debug console logging
+function debug($msg){
+    echo "<script>
+    console.log($msg);
+    </script>";
+}
+
 
 ?>
