@@ -1,4 +1,3 @@
 .vscode
 settings.json
-lib/log/log.txt
-log.txt
+model/log/log.txt
