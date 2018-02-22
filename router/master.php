@@ -4,7 +4,7 @@ require('lib/request/master.req.php');
 require('api/eu.php');
 
 //Call requests
-reqLanguage($config['defaultLanguage']);
+reqLanguage($config['defaultLanguage'], null);
 if(isset($_SESSION['cid'])){
 	getAPI();
 	xlog('User has an active session (logged in)');

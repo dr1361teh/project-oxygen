@@ -2,7 +2,7 @@
 //Access requests
 
 //Request user language cookie
-function reqLanguage($defaultLang){
+function reqLanguage($defaultLang, $lang){
     if(isset($_COOKIE['lang'])){
         xlog('Language cookie already exists, continue...');
     } else {
