@@ -43,5 +43,11 @@ function getDebug(){
     }
 }
 
+function closeDebug(){
+    if(isset($debugMode)){
+        unset($debugMode);
+    }
+}
+
 
 ?>

@@ -7,11 +7,17 @@
     <p><?php echo $msg;?>
         <strong><?php echo $desc;?></strong>
     </p>
-    <?php if($code === '0x007'){
-        $fileDir = $_SESSION['fileName'];
-        echo "<p><strong>Debug Mode</strong>: The page at ".dirname(__DIR__)."/views/admin/$fileDir.php does not exist! Please check the URL.</p>";
-        unset($_SESSION['filename']);
-    } ?>
+    <?php 
+    getDebug();
+    if($debug){
+        if($code === '0x007'){
+            $fileDir = $_SESSION['fileName'];
+            echo "<p><strong>Debug Mode</strong>: The page at ".dirname(__DIR__)."/views/admin/$fileDir.php does not exist! Please check the URL.</p>";
+            unset($_SESSION['filename']);
+        } 
+    }
+    closeDebug();
+    ?>
     <p>
     Select an option below:
     </p>
