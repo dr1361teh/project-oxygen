@@ -35,5 +35,13 @@ function xlog($msg){
     file_put_contents($path, $message, FILE_APPEND);
 }
 
+function getDebug(){
+    if($config['debugMode'] === 'true'){
+        $debugMode = true;
+    } else {
+        $debugMode = false;
+    }
+}
+
 
 ?>

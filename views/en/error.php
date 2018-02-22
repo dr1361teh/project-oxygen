@@ -9,7 +9,7 @@
     </p>
     <?php if($code === '0x007'){
         $fileDir = $_SESSION['fileName'];
-        echo "<p><strong>Debug Mode</strong>: The file ".dirname(__DIR__)."/views/admin/$fileDir.php does not exist! Please check the URL.</p>";
+        echo "<p><strong>Debug Mode</strong>: The page at ".dirname(__DIR__)."/views/admin/$fileDir.php does not exist! Please check the URL.</p>";
         unset($_SESSION['filename']);
     } ?>
     <p>
