@@ -33,13 +33,13 @@
 					<div class="row primary-header">
 						<a href="index.php" class="col-xs-12 col-sm-2 brand" title="Welcome to VATFRANCE"><img src="assets/img/VATFRANCE.PNG" alt="VATFRANCE"></a>
 						<div class="social-links col-xs-12 col-sm-10">
-							<a href="volunteer.php" class="btn btn-default btn-volunteer">User Login</a>
+							<a href="volunteer.php" class="btn btn-default btn-volunteer">Member Login</a>
 							<ul class="social-icons hidden-xs">
 								<li>
-									<a href="" target="_blank">FR <i class="fa fa-flag"></i></a>
+									<a href="model/lang/setLang.php?lang=fr" target="_blank">FR <i class="fa fa-flag"></i></a>
 								</li>
 								<li>
-									<a href="" target="_blank">EN <i class="fa fa-flag"></i></a>
+									<a href="index.php?action=setLang?lang=en" target="_blank">EN <i class="fa fa-flag"></i></a>
 								</li>
 
 							</ul>

@@ -14,10 +14,15 @@ if(isset($_SESSION['cid'])){
 
 
 //Check if the content GET request is set
-if(!isset($_GET['content'])){
-	$content = 'index';
+if(!isset($_GET['action'])){
+	if(!isset($_GET['content'])){
+		$content = 'index';
+	} else {
+		$content = $_GET['content'];
+	}
 } else {
-	$content = $_GET['content'];
+	$action = $_GET['action'];
+	$lang = $_GET['lang'];
 }
 
 //Language ENGLISH
@@ -40,6 +45,16 @@ if($_COOKIE['lang'] === 'en'){
 			$_SESSION['fileName'] = $content;
 			header('Location: index.php?content=error');
 		}
+	} elseif(isset($action)){
+		if(file_exists('model/'.$action.'.php')){
+			require('model/'.$action.'.php');
+		}else{
+			$_SESSION['errcode'] = '0x007';
+			$_SESSION['errmsg'] = 'Failed to open page.';
+			$_SESSION['errdesc'] = 'The file '.$action.'.php does not exist';
+			$_SESSION['fileName'] = $action;
+			header('Location: index.php?content=error');
+		}
 	//if all else above fails:
 	} else {
 		$_SESSION['errcode'] = '0x006';
@@ -58,13 +73,23 @@ if($_COOKIE['lang'] === 'en'){
 			header('Location: index.php?content=index');
 		}
 	} elseif(isset($content)){
-		if(file_exists('views/fr/'.$content.'.php')){
-			require('views/fr/'.$content.'.php');
+		if(file_exists('views/en/'.$content.'.php')){
+			require('views/en/'.$content.'.php');
 		}else{
 			$_SESSION['errcode'] = '0x007';
 			$_SESSION['errmsg'] = 'Failed to open page.';
 			$_SESSION['errdesc'] = 'The file '.$content.'.php does not exist';
 			$_SESSION['fileName'] = $content;
+			header('Location: index.php?content=error');
+		}
+	} elseif(isset($action)){
+		if(file_exists('model/'.$action.'.php')){
+			require('model/'.$action.'.php');
+		}else{
+			$_SESSION['errcode'] = '0x007';
+			$_SESSION['errmsg'] = 'Failed to open page.';
+			$_SESSION['errdesc'] = 'The file '.$action.'.php does not exist';
+			$_SESSION['fileName'] = $action;
 			header('Location: index.php?content=error');
 		}
 	//if all else above fails:
