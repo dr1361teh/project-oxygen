@@ -3,6 +3,12 @@ require('lib/request/master.req.php');
 //Get the VATEUD API
 require('api/eu.php');
 
+if(isset($_GET['link'])){
+	$link = $_GET['link'];
+	xlog('Leaving website to external site: '.$link);
+	header("Location: $link");
+}
+
 //Call requests
 reqLanguage($config['defaultLanguage'], null);
 if(isset($_SESSION['cid'])){
@@ -11,7 +17,6 @@ if(isset($_SESSION['cid'])){
 } else {
 	xlog('User not logged in');
 }
-
 
 //Check if the content GET request is set
 if(!isset($_GET['action'])){
@@ -24,6 +29,7 @@ if(!isset($_GET['action'])){
 	$action = $_GET['action'];
 	$lang = $_GET['lang'];
 }
+
 
 //Language ENGLISH
 if($_COOKIE['lang'] === 'en'){
@@ -55,6 +61,7 @@ if($_COOKIE['lang'] === 'en'){
 			$_SESSION['fileName'] = $action;
 			header('Location: index.php?content=error');
 		}
+
 	//if all else above fails:
 	} else {
 		$_SESSION['errcode'] = '0x006';
@@ -92,6 +99,7 @@ if($_COOKIE['lang'] === 'en'){
 			$_SESSION['fileName'] = $action;
 			header('Location: index.php?content=error');
 		}
+		
 	//if all else above fails:
 	} else {
 		$_SESSION['errcode'] = '0x006';

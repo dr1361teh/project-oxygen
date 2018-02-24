@@ -50,7 +50,7 @@ function closeDebug(){
 }
 
 function alink($href, $title, $target){
-    echo "<a href='$href' target='_$target'>$title</a>";
+    echo "<a href='index.php?link=$href' target='_$target'>$title</a>";
 }
 
 
