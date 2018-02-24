@@ -30,9 +30,15 @@ function debug($msg){
 }
 
 function xlog($msg){
-    $path = 'model/log/log.txt';
-    $message = '['.date('D j M Y H:i:s', time()).'] '.$msg.' | '.$_SERVER['REMOTE_ADDR']."\n";
-    file_put_contents($path, $message, FILE_APPEND);
+    $path = 'model/log/log-'.$_COOKIE['PHPSESSID'].'.txt';
+    if(file_exists($path)){
+        $message = '['.date('D j M Y H:i:s', time()).'] '.$msg.' | '.$_SERVER['REMOTE_ADDR']."\n";
+        file_put_contents($path, $message, FILE_APPEND);
+    } else {
+        fopen($path, "w");
+        $message = '['.date('D j M Y H:i:s', time()).'] '.$msg.' | '.$_SERVER['REMOTE_ADDR']."\n";
+        file_put_contents($path, $message, FILE_APPEND);
+    }
 }
 
 function getDebug(){
