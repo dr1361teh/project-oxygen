@@ -42,7 +42,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-xs-12">
-								<span> &copy; Copyright 2018, All Rights Reserved Project Oxygen.
+								<span> Copyright &copy; <?php echo date('Y');?> <a target="blank" href="http://whenstudios.me">WHENSTUDIOS</a>. All rights reserved
 									</span>
 							</div>
 						</div>

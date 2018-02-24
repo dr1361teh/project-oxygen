@@ -109,3 +109,18 @@
 [Thu 22 Feb 2018 13:39:10] User not logged in | ::1
 [Thu 22 Feb 2018 13:39:10] Error handler activated | ::1
 [Thu 22 Feb 2018 13:39:10] Connected to database successfully | ::1
+[Sat 24 Feb 2018 06:34:00] Language cookie already exists, continue... | ::1
+[Sat 24 Feb 2018 06:34:00] User not logged in | ::1
+[Sat 24 Feb 2018 06:34:02] Connected to database successfully | ::1
+[Sat 24 Feb 2018 06:38:34] Language cookie already exists, continue... | ::1
+[Sat 24 Feb 2018 06:38:34] User not logged in | ::1
+[Sat 24 Feb 2018 06:38:34] Connected to database successfully | ::1
+[Sat 24 Feb 2018 06:38:44] Language cookie already exists, continue... | ::1
+[Sat 24 Feb 2018 06:38:44] User not logged in | ::1
+[Sat 24 Feb 2018 06:38:44] Connected to database successfully | ::1
+[Sat 24 Feb 2018 06:41:10] Language cookie already exists, continue... | ::1
+[Sat 24 Feb 2018 06:41:10] User not logged in | ::1
+[Sat 24 Feb 2018 06:41:10] Connected to database successfully | ::1
+[Sat 24 Feb 2018 06:41:38] Language cookie already exists, continue... | ::1
+[Sat 24 Feb 2018 06:41:38] User not logged in | ::1
+[Sat 24 Feb 2018 06:41:38] Connected to database successfully | ::1
